@@ -1,0 +1,17 @@
+
+*.log
+password.txt
+.vscode/
+*.swp
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+database.sqlite
+
+# VCS
+.git/
+
+# secrets
+.env
+.secrets
