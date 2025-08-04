@@ -68,7 +68,7 @@ youtube-data-pipeline/
 * Clone the repository:
      
 ```
-git clone <your-repo-url>
+git clone https://github.com/shubhamparulekar/youtube_statistics_etl_pipeline/
 cd youtube-data-pipeline
 ```
  
@@ -112,44 +112,161 @@ python main.py "machine learning" 15
 ```
 
 * Option 2: Airflow Orchestration 
-     * Initialize Airflow:
+
 ```    
+#Initialize Airflow:
 export AIRFLOW_HOME=$(pwd)/airflow_home
 airflow db init
 airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com
 ```
 
-     * Copy DAG to Airflow directory:
-     
+**Copy DAG to Airflow directory:**
 
-bash
- 
- 
-1
+```
 cp youtube-data-pipeline/dags/youtube_etl_dag.py airflow_home/dags/
-
-    Start Airflow:
-     
-
-bash
- 
- 
-1
-2
-3
-4
-5
-# In one terminal
+```
+   
+**Start Airflow:**
+```
 airflow webserver --port 8080
 
 # In another terminal
 airflow scheduler
- 
+``` 
  
 
-    Access Airflow UI:
-        Open http://localhost:8080
-        Login with admin credentials
-        Enable and trigger the youtube_etl_pipeline DAG
-         
+**Access Airflow UI:**
+     * Open http://localhost:8080
+     * Login with admin credentials
+     * Enable and trigger the youtube_etl_pipeline DAG
+
+
+## 🔧 Configuration 
+* Environment Variables - All configuration is managed through environment variables in the .env file:
+```
+# YouTube API
+YOUTUBE_API_KEY=your_api_key_here
+
+# Default pipeline parameters
+DEFAULT_QUERY=data science
+DEFAULT_MAX_RESULTS=10
+
+# Airflow settings
+AIRFLOW_DAG_SCHEDULE=@daily
+AIRFLOW_MAX_ACTIVE_RUNS=1
+     
+```
+
+* Customizing the Pipeline 
+     * Change search query: Modify DEFAULT_QUERY in .env
+     * Adjust result count: Modify DEFAULT_MAX_RESULTS in .env
+     * Change schedule: Modify AIRFLOW_DAG_SCHEDULE in .env
+     * Add new data sources: Extend the extract script
+     * Modify transformations: Update transform_data.py
+     
+## 📊 Data Analysis 
+* Open research/data_analysis.ipynb to analyze: 
+     * Top performing channels
+       ![alt text](image.png)
+     * View vs like correlations
+     ![alt text](image-1.png)
+     * Content trends over time
+     ![alt text](image-2.png)
+     * Engagement metrics
+     ![alt text](image-3.png)
+     * And much more!
+     
+
+## 📈 Features 
+* Current Features 
+     * ✅ Automated YouTube data extraction
+     * ✅ Data cleaning and transformation
+     * ✅ Local file storage (no cloud costs)
+     * ✅ Airflow orchestration
+     * ✅ Configurable parameters
+     * ✅ Comprehensive logging
+     * ✅ Unit tests
+     * ✅ Data analysis capabilities
+          
+
+* Data Points Collected 
+     * Video ID and title
+     * Channel information
+     * View counts
+     * Like counts
+     * Comment counts
+     * Publication dates
+     * Video descriptions
+     * Extraction timestamps
+     
+
+## 🛠️ Technical Stack 
+
+* **Python 3.8+** - Core programming language
+* **Apache Airflow 3.0.3** - Workflow orchestration
+* **YouTube Data API v3** - Data source
+* **Pandas** - Data manipulation
+* **Jupyter Notebooks** - Data exploration and analysis
+* **JSON/CSV** - Data storage formats
+* **dotenv** - Environment management
+     
+## 📖 Usage Examples 
+* **Basic Pipeline Run** 
+```
+python main.py
+````
+ 
+* **Custom Query Run** 
+```
+ python main.py "python programming" 20
+```
+
+ 
+ 
+* **Manual Script Execution** 
+```
+# Extract data
+python scripts/extract_youtube_data.py
+
+# Transform data
+python scripts/transform_data.py
+
+# Load data
+python scripts/load_data.py
+```
+ 
+* **Airflow DAG Trigger** 
+```
+# Via Airflow UI or CLI
+airflow dags trigger youtube_etl_pipeline
+```
+
+## 📚 Learning Outcomes 
+
+* This project demonstrates skills in: 
+     * **REST API Integration** - Working with YouTube Data API
+     * **Data Engineering** - ETL pipeline design
+     * **Workflow Orchestration** - Apache Airflow
+     * **Data Cleaning** - Pandas data manipulation
+     * **Software Engineering** - Project structure, testing, logging
+     * **Configuration Management** - Environment variables
+     * **Data Analysis** - Insights generation
+
+
+## 🤝 Contributing 
+* Fork the repository
+* Create a feature branch
+* Commit your changes
+* Push to the branch
+* Open a pull request
+     
+
+## 📄 License 
+This project is open source and available under the MIT License. 
+
+## 🙏 Acknowledgments 
+* YouTube Data API for providing free access to YouTube data
+* Apache Airflow community for the excellent orchestration tool
+* Python pandas team for data manipulation capabilities
+* Qwen3-Coder for providing troubleshooting advice
      
