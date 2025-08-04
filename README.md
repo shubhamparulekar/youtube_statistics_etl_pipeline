@@ -167,7 +167,8 @@ AIRFLOW_MAX_ACTIVE_RUNS=1
 ## 📊 Data Analysis 
 * Open research/data_analysis.ipynb to analyze: 
      * Top performing channels
-       ![alt text](image.png)
+       <img width="1185" height="590" alt="image" src="https://github.com/user-attachments/assets/86c2724d-e048-45d8-8814-cd71bd98076e" />
+
      * View vs like correlations
      ![alt text](image-1.png)
      * Content trends over time
@@ -270,3 +271,4 @@ This project is open source and available under the MIT License.
 * Python pandas team for data manipulation capabilities
 * Qwen3-Coder for providing troubleshooting advice
      
+
