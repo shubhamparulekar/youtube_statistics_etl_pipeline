@@ -9,7 +9,7 @@ from scripts.load_data import load_data as load_processed, save_data as save_fin
 
 
 
-def run_etl_pipeline(query="data science", max_results=10):
+def run_etl_pipeline(query="python", max_results=100):
     print("<-----------------------------------Youtube Data ETL Pipeline ------------------------------------->")
     scripts_dir = os.path.join(os.path.dirname(__file__),'scripts')
     sys.path.append(scripts_dir)
