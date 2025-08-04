@@ -55,7 +55,7 @@ def extract_data(query='data science', max_results=10):
 def save_data(data, filename=None):
     if filename is None:
         timestamp= datetime.now().strftime('%Y%m%d_%H%M%S')
-        filename = f"../data/raw/youtube_data_{timestamp}.json"
+        filename = f"data/raw/youtube_data_{timestamp}.json"
 
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, 'w') as f:

@@ -11,9 +11,9 @@ def load_data(filename):
 def transform_data(data):
     df = pd.DataFrame(data)
 
-    df['view_count'] = pd.to_numeric(df['view_count'], errors='coerce')
-    df['like_count'] = pd.to_numeric(df['like_count'], errors='coerce')
-    df['comment_count'] = pd.to_numeric(df['comment_count'], errors='coerce')
+    df['view_count'] = pd.to_numeric(df['views_count'], errors='coerce')
+    df['like_count'] = pd.to_numeric(df['likes_count'], errors='coerce')
+    df['comment_count'] = pd.to_numeric(df['comments_count'], errors='coerce')
     df['published_at'] = pd.to_datetime(df['published_at'])
     df['extracted_at'] = pd.to_datetime(df['extracted_at'])
     df['title'] = df['title'].fillna('').astype(str)
@@ -38,10 +38,10 @@ def transform_data(data):
     ]
     return df[final_columns]
 
-def save_data(data, filename=None):
+def save_data(df, filename=None):
     if filename is None:
         timestamp= datetime.now().strftime('%Y%m%d_%H%M%S')
-        filename = f"../data/processed/youtube_data_{timestamp}.csv"
+        filename = f"data/processed/youtube_data_{timestamp}.csv"
 
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     df.to_csv(filename, index=False)
@@ -50,10 +50,10 @@ def save_data(data, filename=None):
 
 
 if __name__ == "__main__":
-    raw_files = [f for f in os.listdir('../data/raw') if f.endswith('.json')]
+    raw_files = [f for f in os.listdir('data/raw') if f.endswith('.json')]
     if raw_files:
         latest_file = max(raw_files)
-        filepath = f"../data/raw/{latest_file}"
+        filepath = f"data/raw/{latest_file}"
 
         raw_data= load_data(filepath)
         processed_df = transform_data(raw_data)
