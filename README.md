@@ -100,6 +100,56 @@ pip install -r requirements.txt
      DEFAULT_MAX_RESULTS=10
      AIRFLOW_DAG_SCHEDULE=@daily
   ```
+
+**Running the Pipeline** 
+* Option 1: Manual Execution 
+```
+# Run the complete ETL pipeline manually
+python main.py
+
+# Run with custom parameters
+python main.py "machine learning" 15
+```
+
+* Option 2: Airflow Orchestration 
+     * Initialize Airflow:
+```    
+export AIRFLOW_HOME=$(pwd)/airflow_home
+airflow db init
+airflow users create --username admin --firstname Admin --lastname User --role Admin --email admin@example.com
+```
+
+     * Copy DAG to Airflow directory:
      
 
+bash
+ 
+ 
+1
+cp youtube-data-pipeline/dags/youtube_etl_dag.py airflow_home/dags/
 
+    Start Airflow:
+     
+
+bash
+ 
+ 
+1
+2
+3
+4
+5
+# In one terminal
+airflow webserver --port 8080
+
+# In another terminal
+airflow scheduler
+ 
+ 
+
+    Access Airflow UI:
+        Open http://localhost:8080
+        Login with admin credentials
+        Enable and trigger the youtube_etl_pipeline DAG
+         
+     
