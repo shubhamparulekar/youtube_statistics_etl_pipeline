@@ -84,12 +84,12 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
  
-* Set up YouTube API: 
-* Go to Google Cloud Console 
-* Create a new project or select existing one
-* Enable YouTube Data API v3
-* Create API credentials (API Key)
-* Copy your API key
+** Set up YouTube API: 
+** Go to Google Cloud Console 
+** Create a new project or select existing one
+** Enable YouTube Data API v3
+** Create API credentials (API Key)
+** Copy your API key
          
 * Configure environment variables:
   Create a .env file in the project root:
@@ -101,3 +101,4 @@ pip install -r requirements.txt
      AIRFLOW_DAG_SCHEDULE=@daily
   ```
      
+
