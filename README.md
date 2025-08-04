@@ -170,11 +170,14 @@ AIRFLOW_MAX_ACTIVE_RUNS=1
        <img width="1185" height="590" alt="image" src="https://github.com/user-attachments/assets/86c2724d-e048-45d8-8814-cd71bd98076e" />
 
      * View vs like correlations
-     ![alt text](image-1.png)
+     <img width="846" height="547" alt="image" src="https://github.com/user-attachments/assets/1ce04fd6-f7d3-49cf-b8cc-c549f024a94f" />
+
      * Content trends over time
-     ![alt text](image-2.png)
+     * <img width="842" height="568" alt="image" src="https://github.com/user-attachments/assets/ecacf028-d62b-4756-ac52-86816b71030d" />
+
      * Engagement metrics
-     ![alt text](image-3.png)
+     <img width="1189" height="590" alt="image" src="https://github.com/user-attachments/assets/0c3977ea-8608-40a9-ac19-a2c52545dc51" />
+
      * And much more!
      
 
@@ -271,4 +274,5 @@ This project is open source and available under the MIT License.
 * Python pandas team for data manipulation capabilities
 * Qwen3-Coder for providing troubleshooting advice
      
+
 
